@@ -10,8 +10,8 @@
     <!-- 새 노트 버튼 -->
     <div class="top-actions">
         <a href="/notes/create" class="btn btn-primary">➕ Create new note</a>
-        <a href="/notes/search" class="btn">🔍 Search</a>
-        <a href="/" class="btn">🏠 Home</a>
+        <a href="/notes/search" class="btn"> 🔍 Search</a>
+        <a href="/" class="btn"> 🏠 Home</a>
     </div>
     
     <div class="notes-list">
@@ -43,11 +43,11 @@
                     
                     <!-- 액션 버튼들 -->
                     <div class="actions">
-                        <a href="/notes/view/<%= note.id %>" class="btn-small">👁️ See</a>
-                        <a href="/notes/edit/<%= note.id %>" class="btn-small">✏️ Fixß</a>
+                        <a href="/notes/view/<%= note.id %>" class="btn-small">See</a>
+                        <a href="/notes/edit/<%= note.id %>" class="btn-small">Fix</a>
                         <a href="/notes/delete/<%= note.id %>" 
                            class="btn-small btn-danger"
-                           onclick="return confirm('정말 삭제할까요?')">
+                           onclick="return confirm('Are you sure to delete this note?')">
                             🗑️ Delete
                         </a>
                     </div>

@@ -1,200 +1,438 @@
-/* 전체 페이지 스타일 */
+/* ============================================
+   🌿 Japanese Minimalism + Cyber Font 🌿
+   ============================================ */
+
+/* 전체 페이지 - 사이버 폰트 적용 */
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    max-width: 900px;
+    font-family: 'Courier New', 'SF Mono', 'Monaco', 'Consolas', monospace;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #f5f7fa;
-    color: #333;
+    padding: 40px 20px;
+    background: linear-gradient(to bottom, #fafaf8, #f5f5f0);
+    color: #4a4a4a;
+    line-height: 1.8;
+    letter-spacing: -0.3px;  /* 좁은 자간 */
 }
 
-/* 제목 */
+/* 은은한 종이 텍스처 효과 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.008) 2px, rgba(0, 0, 0, 0.008) 4px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 제목 - 사이버 폰트 + 좁은 자간 */
 h1 {
-    color: #2c3e50;
-    border-bottom: 3px solid #3498db;
-    padding-bottom: 10px;
+    color: #2d2d2d;
+    font-size: 1.8em;
+    font-weight: 500;
+    letter-spacing: 0.5px;  /* 좁은 자간 */
+    text-transform: uppercase;
+    border-bottom: 1px solid #d4cfc9;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    position: relative;
 }
 
-/* 링크 */
+/* 제목 아래 포인트 라인 */
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #a8b5a0, transparent);
+}
+
+h2, h3 {
+    color: #3d3d3d;
+    font-weight: 500;
+    letter-spacing: -0.2px;  /* 좁은 자간 */
+}
+
+/* 링크 - 은은한 초록 */
 a {
-    color: #3498db;
+    color: #7a9b76;
     text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+    letter-spacing: -0.2px;
 }
 
 a:hover {
-    text-decoration: underline;
+    color: #5d7a5a;
+    border-bottom: 1px solid #a8b5a0;
 }
 
-/* 네비게이션 */
+/* 네비게이션 - 투명 유리 효과 */
 nav {
-    margin: 20px 0;
-    padding: 15px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 40px 0;
+    padding: 25px 30px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(212, 207, 201, 0.3);
+    border-radius: 2px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.02);
 }
 
 nav a {
-    margin-right: 15px;
-    padding: 8px 15px;
-    background: #3498db;
-    color: white;
-    border-radius: 5px;
+    margin-right: 20px;
+    padding: 8px 16px;
+    color: #6b7b68;
+    border: 1px solid #d4cfc9;
+    border-radius: 2px;
     display: inline-block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-size: 0.85em;
+    letter-spacing: 0px;  /* 좁은 자간 */
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
 }
 
 nav a:hover {
-    background: #2980b9;
-    text-decoration: none;
+    background: rgba(168, 181, 160, 0.15);
+    border-color: #a8b5a0;
+    transform: translateY(-1px);
 }
 
-/* 노트 카드 */
+/* 노트 카드 - 와시 종이 느낌 */
 .note-card {
-    background: white;
-    padding: 20px;
-    margin: 15px 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    margin: 25px 0;
+    border: 1px solid rgba(212, 207, 201, 0.4);
+    border-radius: 2px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* 카드 왼쪽 포인트 라인 */
+.note-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 30px;
+    width: 3px;
+    height: 40px;
+    background: linear-gradient(180deg, #a8b5a0, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .note-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    border-color: rgba(168, 181, 160, 0.6);
+}
+
+.note-card:hover::before {
+    opacity: 1;
 }
 
 .note-card h3 {
     margin-top: 0;
-    color: #2c3e50;
+    color: #3d3d3d;
+    font-size: 1.2em;
+    font-weight: 500;
+    letter-spacing: -0.3px;  /* 좁은 자간 */
+}
+
+.note-card h3 a {
+    color: #3d3d3d;
+    border: none;
+}
+
+.note-card h3 a:hover {
+    color: #7a9b76;
 }
 
 /* 미리보기 텍스트 */
 .preview {
-    color: #7f8c8d;
-    line-height: 1.6;
+    color: #707070;
+    line-height: 1.9;
+    font-size: 0.9em;
+    margin: 15px 0;
+    letter-spacing: -0.3px;
 }
 
-/* 날짜 */
+/* 날짜 - 연한 회색 */
 .date {
-    color: #95a5a6;
-    font-size: 0.9em;
+    color: #a0a0a0;
+    font-size: 0.8em;
+    letter-spacing: -0.2px;
 }
 
-/* 노트 내용 */
-.note-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    line-height: 1.8;
-    white-space: pre-wrap;  /* 줄바꿈 유지 */
-}
-
+/* 노트 메타 정보 */
 .note-meta {
-    color: #7f8c8d;
-    font-size: 0.9em;
-    margin-bottom: 15px;
+    color: #8a8a8a;
+    font-size: 0.85em;
+    margin-bottom: 25px;
+    padding: 15px 20px;
+    background: rgba(168, 181, 160, 0.08);
+    border-left: 2px solid #a8b5a0;
+    border-radius: 2px;
+    letter-spacing: -0.2px;
 }
 
-/* 액션 버튼들 */
+/* 노트 내용 - 깨끗한 종이 */
+.note-content {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 35px;
+    border: 1px solid rgba(212, 207, 201, 0.3);
+    border-radius: 2px;
+    line-height: 2;
+    white-space: pre-wrap;
+    color: #4a4a4a;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.02);
+    letter-spacing: -0.3px;  /* 좁은 자간 */
+}
+
+/* 액션 영역 */
 .actions {
-    margin-top: 15px;
+    margin-top: 25px;
 }
 
 .top-actions {
-    margin: 20px 0;
+    margin: 35px 0;
 }
 
-/* 버튼 스타일 */
-.btn, .btn-small {
+/* 버튼 - 미니멀 스타일 + 사이버 폰트 */
+.btn, .btn-small, button[type="submit"] {
     display: inline-block;
     padding: 10px 20px;
-    margin: 5px 5px 5px 0;
-    background: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
+    margin: 5px 8px 5px 0;
+    background: rgba(255, 255, 255, 0.6);
+    color: #6b7b68;
+    border: 1px solid #d4cfc9;
+    border-radius: 2px;
     cursor: pointer;
     text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', 'SF Mono', 'Monaco', monospace;
+    font-size: 0.85em;
+    letter-spacing: 0px;  /* 좁은 자간 */
+    backdrop-filter: blur(5px);
+    text-transform: uppercase;
+    font-weight: 500;
 }
 
-.btn:hover, .btn-small:hover {
-    background: #2980b9;
-    text-decoration: none;
+.btn:hover, .btn-small:hover, button[type="submit"]:hover {
+    background: rgba(168, 181, 160, 0.2);
+    border-color: #a8b5a0;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .btn-primary {
-    background: #2ecc71;
+    background: rgba(168, 181, 160, 0.2);
+    border-color: #a8b5a0;
+    color: #5d7a5a;
 }
 
 .btn-primary:hover {
-    background: #27ae60;
+    background: rgba(168, 181, 160, 0.35);
 }
 
 .btn-danger {
-    background: #e74c3c;
+    background: rgba(220, 200, 200, 0.2);
+    border-color: #d4c4c4;
+    color: #8b6b6b;
 }
 
 .btn-danger:hover {
-    background: #c0392b;
+    background: rgba(220, 200, 200, 0.35);
+    border-color: #c4b4b4;
 }
 
 .btn-small {
-    padding: 5px 10px;
-    font-size: 0.9em;
+    padding: 6px 14px;
+    font-size: 0.8em;
 }
 
-/* 폼 스타일 */
+/* 폼 스타일 - 사이버 폰트 */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
-    color: #2c3e50;
-    font-weight: bold;
+    margin-bottom: 12px;
+    color: #5d5d5d;
+    font-weight: 500;
+    letter-spacing: 0px;  /* 좁은 자간 */
+    font-size: 0.9em;
+    text-transform: uppercase;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-size: 1em;
-    font-family: inherit;
+    padding: 15px 18px;
+    border: 1px solid #d4cfc9;
+    border-radius: 2px;
+    font-size: 0.95em;
+    font-family: 'Courier New', 'SF Mono', 'Monaco', monospace;
     box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.7);
+    color: #4a4a4a;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    line-height: 1.6;
+    letter-spacing: -0.3px;  /* 좁은 자간 */
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #b0b0b0;
+    opacity: 0.8;
+    letter-spacing: -0.2px;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #3498db;
+    border-color: #a8b5a0;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 12px rgba(168, 181, 160, 0.1);
 }
 
 .form-actions {
-    margin-top: 20px;
+    margin-top: 35px;
 }
 
-button[type="submit"] {
-    padding: 12px 30px;
-    font-size: 1em;
-}
-
-/* 노트 없을 때 */
+/* 노트 없을 때 - 선 스타일 */
 .no-notes {
     text-align: center;
-    color: #95a5a6;
-    font-size: 1.2em;
-    padding: 40px;
-    background: white;
-    border-radius: 8px;
+    color: #9a9a9a;
+    font-size: 1.05em;
+    padding: 60px 40px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px dashed #d4cfc9;
+    border-radius: 2px;
+    letter-spacing: -0.2px;
+    backdrop-filter: blur(5px);
 }
 
-/* 구분선 */
+/* 구분선 - 얇고 은은한 */
 hr {
     border: none;
-    border-top: 1px solid #ddd;
-    margin: 20px 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        #d4cfc9 20%, 
+        #d4cfc9 80%, 
+        transparent);
+    margin: 35px 0;
+}
+
+/* 스크롤바 - 미니멀 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(245, 245, 240, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(168, 181, 160, 0.4);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(168, 181, 160, 0.6);
+}
+
+/* 리스트 스타일 */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 10px;
+    letter-spacing: -0.3px;
+}
+
+ul li::before {
+    content: '・';
+    position: absolute;
+    left: 0;
+    color: #a8b5a0;
+}
+
+/* 테이블 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+table th,
+table td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(212, 207, 201, 0.3);
+    text-align: left;
+    letter-spacing: -0.2px;
+}
+
+table th {
+    font-weight: 500;
+    color: #5d5d5d;
+    background: rgba(168, 181, 160, 0.08);
+    text-transform: uppercase;
+    font-size: 0.85em;
+}
+
+/* 은은한 페이드인 애니메이션 */
+.note-card,
+nav,
+.note-content,
+.form-group {
+    animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 반응형 - 모바일 */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 15px;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+    }
+    
+    .note-card {
+        padding: 20px;
+    }
+    
+    nav a {
+        display: block;
+        margin: 5px 0;
+    }
 }
