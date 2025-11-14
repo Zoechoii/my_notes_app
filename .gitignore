@@ -1,0 +1,48 @@
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory
+coverage/
+
+# Build/production folders
+dist/
+build/
+out/
+
+# Next.js
+.next/
+
+# Environment files
+.env
+.env.*.local
+
+# Editor directories
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Misc caches
+.cache/
+.parcel-cache/
+.eslintcache
+
+# Optional local npm config
+.npmrc
+
+# Keep lockfiles (package-lock.json, yarn.lock) committed by default
