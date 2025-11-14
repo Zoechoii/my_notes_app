@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>노트 수정</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>✏️ 노트 수정</h1>
+    
+    <!-- 폼: POST 방식으로 /notes/edited/:id 에 제출 -->
+    <form action="/notes/edited/<%= note.id %>" method="POST">
+        <!-- 제목 (기존 값 채워져 있음) -->
+        <div class="form-group">
+            <label for="title">제목:</label>
+            <input 
+                type="text" 
+                id="title"
+                name="title"
+                value="<%= note.title %>"  <!-- 기존 제목 -->
+                required>
+        </div>
+        
+        <!-- 내용 (기존 값 채워져 있음) -->
+        <div class="form-group">
+            <label for="content">내용:</label>
+            <textarea 
+                id="content"
+                name="content"
+                rows="15"
+                required><%= note.content %></textarea>  <!-- 기존 내용 -->
+        </div>
+        
+        <!-- 버튼들 -->
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">💾 수정 완료</button>
+            <a href="/notes/view/<%= note.id %>" class="btn">❌ 취소</a>
+        </div>
+    </form>
+</body>
+</html>

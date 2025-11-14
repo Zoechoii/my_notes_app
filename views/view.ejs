@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- note 변수는 라우터에서 전달받음 -->
+    <title><%= note.title %></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- 노트 제목 -->
+    <h1><%= note.title %></h1>
+    
+    <!-- 날짜 정보 -->
+    <div class="note-meta">
+        <small>작성: <%= new Date(note.created_at).toLocaleString('ko-KR') %></small>
+        <br>
+        <small>수정: <%= new Date(note.updated_at).toLocaleString('ko-KR') %></small>
+    </div>
+    
+    <hr>
+    
+    <!-- 노트 내용 (줄바꿈 유지) -->
+    <div class="note-content">
+        <%= note.content %>
+    </div>
+    
+    <hr>
+    
+    <!-- 액션 버튼들 -->
+    <div class="actions">
+        <a href="/notes/edit/<%= note.id %>" class="btn">✏️ Fix</a>
+        <a href="/notes/delete/<%= note.id %>" 
+           class="btn btn-danger"
+           onclick="return confirm('Are you sure to delete this note?')">
+            🗑️ 삭제
+        </a>
+        <a href="/notes/list" class="btn">📚 Back to lists</a>
+        <a href="/" class="btn">🏠 Home</a>
+    </div>
+</body>
+</html>

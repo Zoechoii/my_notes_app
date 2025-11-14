@@ -1,53 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Notes - list</title>
+    <title>Search result</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1>📚 My notes</h1>
+    <!-- keyword와 notes 변수는 라우터에서 전달받음 -->
+    <h1>🔍 '<%= keyword %>' Search result</h1>
     
-    <!-- 새 노트 버튼 -->
-    <div class="top-actions">
-        <a href="/notes/create" class="btn btn-primary">➕ Create new note</a>
-        <a href="/notes/search" class="btn">🔍 Search</a>
-        <a href="/" class="btn">🏠 Home</a>
-    </div>
+    <p><a href="/notes/search" class="btn">🔍 다시 검색</a></p>
     
     <div class="notes-list">
-        <!-- 노트가 없을 때 -->
+        <!-- 검색 결과 없을 때 -->
         <% if (notes.length === 0) { %>
-            <p class="no-notes">Create your first note✨</p>
+            <p class="no-notes">No results. 😢</p>
         
-        <!-- 노트가 있을 때 = 반복문으로 각 노트 보여주기 -->
+        <!-- 검색 결과 있을 때 -->
         <% } else { %>
+            <p><%= notes.length %>: Search result</p>
+            
+            <!-- 각 노트 보여주기 (list.ejs와 비슷) -->
             <% notes.forEach(function(note) { %>
                 <div class="note-card">
-                    <!-- 노트 제목 (클릭하면 자세히 보기) -->
                     <h3>
                         <a href="/notes/view/<%= note.id %>">
                             <%= note.title %>
                         </a>
                     </h3>
                     
-                    <!-- 내용 미리보기 (처음 100글자만) -->
                     <p class="preview">
                         <%= note.content.substring(0, 100) %>
                         <% if (note.content.length > 100) { %>...more<% } %>
                     </p>
                     
-                    <!-- 날짜 정보 -->
                     <small class="date">
                         마지막 수정: <%= new Date(note.updated_at).toLocaleString('ko-KR') %>
                     </small>
                     
-                    <!-- 액션 버튼들 -->
                     <div class="actions">
-                        <a href="/notes/view/<%= note.id %>" class="btn-small">👁️ See</a>
-                        <a href="/notes/edit/<%= note.id %>" class="btn-small">✏️ Fixß</a>
+                        <a href="/notes/view/<%= note.id %>" class="btn-small">👁️ View</a>
+                        <a href="/notes/edit/<%= note.id %>" class="btn-small">✏️ Fix</a>
                         <a href="/notes/delete/<%= note.id %>" 
                            class="btn-small btn-danger"
-                           onclick="return confirm('정말 삭제할까요?')">
+                           onclick="return confirm('Are you sure to delete this note?')">
                             🗑️ Delete
                         </a>
                     </div>
@@ -55,5 +50,7 @@
             <% }); %>
         <% } %>
     </div>
+    
+    <p><a href="/notes/list">📚 list</a></p>
 </body>
 </html>

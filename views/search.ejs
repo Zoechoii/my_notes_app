@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>🔍 Search</h1>
+    
+    <!-- 검색 폼: POST 방식으로 /notes/search-result 에 제출 -->
+    <form action="/notes/search-result" method="POST">
+        <div class="form-group">
+            <label for="keyword">keyword:</label>
+            <input 
+                type="text" 
+                id="keyword"
+                name="keyword"  <!-- req.body.keyword로 받음 -->
+                placeholder="Enter keyword to search"
+                required>
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">🔍 Search</button>
+            <a href="/notes/list" class="btn">📚 Back to list</a>
+        </div>
+    </form>
+</body>
+</html>
